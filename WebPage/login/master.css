@@ -1,0 +1,381 @@
+/* @import url('https://fonts.googleapis.com/css?family=Cairo:400,900'); */
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select:focus,
+select,
+textarea,
+textarea:focus {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', Arial, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  direction: ltr;
+  background: #e0e0e0;
+}
+
+i.fas {
+  margin: 0 5px;
+}
+
+a .xbutton {
+  color: white;
+}
+
+.xbutton {
+  padding: 5px 10px;
+  background: #419941;
+  color: white !important;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.xbutton:hover {
+  background: #1e7b1e;
+}
+
+.xbutton.delete {
+  background: #d24040;
+}
+
+.xbutton.delete:hover {
+  background: #ba1b1b;
+}
+
+.xbutton.edit {
+  background: #0cd3c5;
+}
+
+.xbutton.edit:hover {
+  background: #1bb2a8;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.wrapper .sidebar {
+  width: 50px;
+  position: fixed;
+  left: 0;
+  background: #276927;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px 0;
+  overflow: auto;
+  overflow-x: hidden;
+  z-index: 999;
+  transition: width .4s;
+  font-size: 15px;
+  background: linear-gradient(45deg, #579812, #2c7b4a);
+}
+
+.wrapper .sidebar .menu-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.wrapper .sidebar .menu-button .menu-button-line {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  transition: top .3s, bottom .3s, transform .3s, opacity .3s;
+}
+
+.wrapper .sidebar .menu-button .menu-button-line:nth-of-type(1) {
+  top: 0;
+}
+
+.wrapper .sidebar .menu-button .menu-button-line:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.wrapper .sidebar .menu-button .menu-button-line:nth-of-type(3) {
+  bottom: 0;
+}
+
+.wrapper .sidebar .menu-button:hover .menu-button-line {
+  background: white;
+}
+
+.wrapper .sidebar .menu-button.menu-close .menu-button-line:nth-of-type(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.wrapper .sidebar .menu-button.menu-close .menu-button-line:nth-of-type(2) {
+  opacity: 0;
+}
+
+.wrapper .sidebar .menu-button.menu-close .menu-button-line:nth-of-type(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+.wrapper .sidebar a {
+  text-decoration: none;
+}
+
+.wrapper .sidebar .button {
+  width: 260px;
+  box-sizing: border-box;
+  padding: 15px 0;
+  color: #fff;
+  text-align: left;
+}
+
+.wrapper .sidebar .button i {
+  margin: 0;
+  width: 50px;
+  text-align: center;
+}
+
+.wrapper .sidebar .button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.wrapper .main-body {
+  width: calc(100% - 80px);
+  min-height: 300px;
+  box-sizing: border-box;
+  padding: 20px;
+  position: relative;
+  left: 50px;
+  transition: left .4s, padding .4s;
+}
+
+.wrapper .main-body .container {
+  min-height: 300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 10px;
+  background: #fff;
+  border-radius: 10px;
+  padding-bottom: 140px;
+  position: relative;
+}
+
+.wrapper .main-body .container h1 {
+  font-size: 25px;
+}
+
+.wrapper .main-body .container h1 i {
+  margin: 0 10px;
+}
+
+.wrapper .main-body .container .new-sec {
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 0 auto;
+}
+
+.wrapper .main-body .container .main-form {
+  margin: 20px;
+}
+
+.main-form input {
+  margin: 10px 0;
+  max-width: 100%;
+}
+
+.main-form input[type="text"], .main-form input[type="email"], .main-form input[type="number"], .main-form input[type="password"], .main-form input[type="number"], .main-form select {
+  width: 250px;
+  padding: 9px;
+  border: 2px solid #e0e0e0;
+  background: #fefefe;
+  box-sizing: content-box;
+}
+
+.main-form input[type="submit"] {
+  padding: 10px 20px;
+  background: #419941;
+  color: white;
+  border: 0;
+}
+
+.container .img-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  max-width: 80%;
+  height: 100px;
+  font-size: 13px;
+  opacity: 0.5;
+  text-align: right;
+}
+
+.container .img-logo img {
+  max-width: 100%;
+  max-height: 70%;
+}
+
+.warn, .success {
+  display: inline-block;
+  padding: 10px;
+  background: #ff000033;
+  margin: 10px 0;
+}
+
+.success {
+  background: #00ff0033;
+}
+
+.warn:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f071";
+  margin: 0 10px;
+  color: #ee1133;
+}
+
+.success:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f00c";
+  margin: 0 10px;
+  color: #11ee33;
+}
+
+.login-form {
+  max-width: 90%;
+  min-height: 100px;
+  max-height: 90%;
+  padding: 20px;
+  background: #efefef;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+table, th, td {
+  padding: 5px;
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+}
+
+th, td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.sort-field {
+  position: relative;
+  width: 200px;
+  max-width: 80%;
+}
+
+.button-options {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.sort-field:hover .button-options {
+  display: block;
+}
+
+.button-option {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #5eb85e;
+  color: white;
+}
+
+.menu-button {
+  display: none;
+}
+
+.wrapper .sidebar {
+  width: 200px;
+}
+
+.wrapper .main-body {
+  padding-left: 180px;
+}
+
+.sidebar {
+  text-align: center;
+}
+
+.sidebar .logo {
+  width: 70px;
+  margin-top: 50px;
+  opacity: 0.6;
+}
+
+@media only screen and (min-width: 900px) {
+  .wrapper .main-body {
+    left: 50px !important;
+  }
+
+  .wrapper .sidebar {
+    width: 200px !important;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    background: white;
+  }
+
+  .sidebar .logo {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .wrapper .sidebar {
+    width: 50px;
+    padding: 50px 0;
+  }
+
+  .wrapper .main-body {
+    padding: 0;
+  }
+}
