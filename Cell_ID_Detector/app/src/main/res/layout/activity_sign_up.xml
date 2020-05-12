@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="750px"
+        android:layout_height="100px"
+        android:layout_marginTop="300px"
+        android:layout_marginLeft="150px"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:background="@drawable/editextstyle"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/userphone"
+        android:layout_width="750px"
+        android:layout_height="100px"
+        android:layout_marginLeft="150px"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:layout_marginTop="100px"
+        android:background="@drawable/editextstyle"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/useraddress"
+        android:layout_width="750px"
+        android:layout_height="100px"
+        android:layout_marginLeft="150px"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:background="@drawable/editextstyle"
+        android:hint="Address"
+        android:layout_marginTop="100px"
+        android:gravity="center"
+
+        />
+
+    <EditText
+        android:id="@+id/userid"
+        android:layout_width="750px"
+        android:layout_height="100px"
+        android:layout_marginLeft="150px"
+        android:background="@drawable/editextstyle"
+        android:ems="10"
+        android:hint="National ID"
+        android:inputType="number"
+        android:layout_marginTop="100px"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/Email_EditText"
+        android:layout_width="750px"
+        android:layout_height="100px"
+        android:layout_marginLeft="150px"
+        android:background="@drawable/editextstyle"
+        android:ems="10"
+        android:hint="Enter your E-mail"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="100px"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/Password_EditText"
+        android:layout_width="750px"
+        android:layout_height="100px"
+        android:layout_marginLeft="150px"
+        android:background="@drawable/editextstyle"
+        android:ems="10"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:layout_marginTop="100px"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/SignUp_Button"
+        android:layout_width="250px"
+        android:layout_height="150px"
+        android:layout_marginTop="50px"
+        android:layout_marginLeft="390px"
+        android:text="Sign Up"
+
+        />
+
+</LinearLayout>
