@@ -13,7 +13,7 @@ if(isset($_POST['login'])){
   print_r($res);
   if(DB::query('SELECT username FROM users WHERE username=:username',array(':username'=>$username))){
 	  echo 'here';
-    $userId = DB::query('SELECT id FROM users WHERE username=:username',array(':username'=>$username))[0]["id"];
+  // $userId = DB::query('SELECT id FROM users WHERE username=:username',array(':username'=>$username))[0]["id"];
 	print_r(DB::query('SELECT password FROM users WHERE username=:username',array(':username'=>$username))[0]['password']);
     if($password == DB::query('SELECT password FROM users WHERE username=:username',array(':username'=>$username))[0]["password"]){
 		$type=DB::query('SELECT usertype FROM users  WHERE username=:username',array(':username'=>$username))[0]["usertype"];

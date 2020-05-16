@@ -8,6 +8,7 @@ class DB{
 
         $pdo = new PDO('mysql:host=localhost;dbname=demo;charset=utf8;collation=utf8_unicode_ci', 'root', '');
 
+
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         return $pdo;

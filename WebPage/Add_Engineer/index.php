@@ -50,21 +50,18 @@
 
 				<label class="label-input100" for="user-name">User Name</label>
 				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type user name">
-					<input type="text" pattern="[A-Za-z]{1,32}" id="name" class="input100" type="text" name="name" placeholder="User name" required>
+					<input type="text" pattern="[A-Za-z]{1,32}" id="username" class="input100" type="text" name="username" placeholder="User name" required>
 					<span class="focus-input100"></span>
 				</div>
 				
 				
 				
-
 				<label class="label-input100" for="password">Password</label>
 				<div class="wrap-input100">
 					<input type="password"  id="password" class="input100" name="password" placeholder="Password"required >
 					<span class="focus-input100"></span>
 				</div>
 
-				
-				
 				
 				
 				<div class="container-contact100-form-btn">

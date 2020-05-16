@@ -64,7 +64,7 @@ include_once 'locations_model.php';
 
 
     function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
+        var request = window.ActiveXObject ()
             new ActiveXObject('Microsoft.XMLHTTP') :
             new XMLHttpRequest;
 
