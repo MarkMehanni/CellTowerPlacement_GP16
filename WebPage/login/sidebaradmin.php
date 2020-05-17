@@ -40,6 +40,7 @@
   <a href="./"><div class="button"><i class="fas fa-home"></i>Home</div></a>
   <a href="./admin-map.php"><div class="button"><i class="fas fa-binoculars"></i>view antennas</div></a>
   <a href="../Add_Engineer/index.php"><div class="button"><i class="fas fa-user-plus"></i>Add Engineer</div></a>
+  <a href="../Add_Admin/indexadmin.php"><div class="button"><i class="fas fa-user-plus"></i>Add Admin</div></a>
   <a href="http://127.0.0.1:5000/"><div class="button"><i class="fas fa-broadcast-tower"></i>test</div></a>
   
 

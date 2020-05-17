@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Add Engineer</title>
+	<title> Engineer Registration</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -31,14 +30,14 @@
 <body>
 
 		<div class="container-contact100">
-      <img  class="contact100-form"  src="images/antennas.jpg" height="500"width="100" alt="Italian Trulli">
+      <img  class="contact100-form"  src="images/user.jpeg" height="400"width="30" alt="Italian Trulli">
 	  </div>
 	  
 	<div class="container-contact100">
                                    
-			<form  method="post" action="submit.php" class="contact100-form validate-form">
+			<form  method="post" action="signUp.php" class="contact100-form validate-form">
 				<span class="contact100-form-title">
-					Add Engineer
+				Sign Up
 				</span>
 
 				<label class="label-input100" for="user-name">User Name</label>
@@ -86,16 +85,13 @@
                 <input type="radio" id="female" name="gender" value="female">
                  <label for="female">Female</label><br>
 				</div>
-
-				<div class="container-contact100-form-btn">
-					<button type="submit" formaction="submit.php" class="contact100-form-btn" id="submitbtn" name="submit">
-						Submit
-					</button>
-				</div>
+			<div class="wrap-input100">	<p><span><input type="checkbox"required></span> I agree to the terms of service </P>
+				<br>
+				<button type="submit" formaction="signUp.php" class="contact100-form-btn" id="submitbtn" name="submit"> Register </button>
+				<hr><br>
+				<p class="or"> OR </p>
+				<p>Have an account? <a href="logg.php">Log In Now </a></P>	</div>
 			</form>
-
-			
-
 	</div>
 
 	<div id="dropDownSelect1"></div>

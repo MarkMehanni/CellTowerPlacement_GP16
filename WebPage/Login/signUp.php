@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-include_once 'index.php';
+include_once 'signUpIndex.php';
 
 $link = mysqli_connect("localhost","root","") or die("failed to connect to server !!");
 mysqli_select_db($link,"demo");

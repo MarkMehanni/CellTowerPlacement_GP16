@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-include_once 'index.php';
+include_once 'indexadmin.php';
 
 $link = mysqli_connect("localhost","root","") or die("failed to connect to server !!");
 mysqli_select_db($link,"demo");
@@ -35,7 +35,7 @@ else
 {
  // $sql="INSERT INTO users(username,password,usertype ) VALUES ('$username','$password' ,'engineer' )";
   $sql = "INSERT INTO `users`( `password`, `username`, `lastname`,`phone`, `email`,`dateofbirth`,`gender`,`usertype`) 
-  VALUES ('$password','$username','$lastname','$phoneNumber','$email','$db','$gender','engineer')";
+  VALUES ('$password','$username','$lastname','$phoneNumber','$email','$db','$gender','admin')";
 
 	mysqli_query($link,$sql) or die(mysqli_error($link));
 }

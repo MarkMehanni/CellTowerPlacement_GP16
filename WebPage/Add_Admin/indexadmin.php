@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Add Engineer</title>
+	<title>Add Admin</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -31,14 +31,14 @@
 <body>
 
 		<div class="container-contact100">
-      <img  class="contact100-form"  src="images/antennas.jpg" height="500"width="100" alt="Italian Trulli">
+      <img  class="contact100-form"  src="images/user.jpeg" height="400"width="30" alt="Italian Trulli">
 	  </div>
 	  
 	<div class="container-contact100">
                                    
-			<form  method="post" action="submit.php" class="contact100-form validate-form">
+			<form  method="post" action="submitadmin.php" class="contact100-form validate-form">
 				<span class="contact100-form-title">
-					Add Engineer
+					Add Admin
 				</span>
 
 				<label class="label-input100" for="user-name">User Name</label>
@@ -88,7 +88,7 @@
 				</div>
 
 				<div class="container-contact100-form-btn">
-					<button type="submit" formaction="submit.php" class="contact100-form-btn" id="submitbtn" name="submit">
+					<button type="submit" formaction="submitadmin.php" class="contact100-form-btn" id="submitbtn" name="submit">
 						Submit
 					</button>
 				</div>
