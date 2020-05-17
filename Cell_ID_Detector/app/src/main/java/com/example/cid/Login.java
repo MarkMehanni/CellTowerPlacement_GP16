@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     EditText useremail;
     EditText userpass;
@@ -43,12 +43,12 @@ public class LoginActivity extends AppCompatActivity {
 
                         if(task.isSuccessful()){
 
-                            Toast.makeText(LoginActivity.this, "Logged in successfully", Toast.LENGTH_LONG).show();
-                            Intent i = new Intent (LoginActivity.this , GridLayoutActivity.class);
+                            Toast.makeText(Login.this, "Logged in successfully", Toast.LENGTH_LONG).show();
+                            Intent i = new Intent (Login.this , home_activity.class);
                             startActivity(i);
                         }
                         else{
-                            Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
 
                         }

@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUp extends AppCompatActivity {
+public class Signup extends AppCompatActivity {
     DatabaseReference myref= FirebaseDatabase.getInstance().getReference();
     EditText Email_EditText ,Password_EditText, Name ,Phone , Address , ID;
     Button SignUp_Button;
@@ -29,7 +29,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_signup);
         Name=findViewById(R.id.username);
         Phone=findViewById(R.id.userphone);
         Address=findViewById(R.id.useraddress);
@@ -53,12 +53,12 @@ public class SignUp extends AppCompatActivity {
                             FirebaseUser user=firebaseAuth.getCurrentUser();
                             userID = user.getUid();
                             adduser();
-                            Toast.makeText(SignUp.this, "Signed up successfully", Toast.LENGTH_LONG).show();
-                            Intent i = new Intent (SignUp.this , GridLayoutActivity.class);
+                            Toast.makeText(Signup.this, "Signed up successfully", Toast.LENGTH_LONG).show();
+                            Intent i = new Intent (Signup.this , home_activity.class);
                             startActivity(i);
                         }
                         else{
-                            Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(Signup.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
 
                         }

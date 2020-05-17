@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "120412490594",
-    "firebase_url": "https://cidfirebaseproject-cdef4.firebaseio.com",
-    "project_id": "cidfirebaseproject-cdef4",
-    "storage_bucket": "cidfirebaseproject-cdef4.appspot.com"
+    "project_number": "527160165132",
+    "firebase_url": "https://cidmonitoring.firebaseio.com",
+    "project_id": "cidmonitoring",
+    "storage_bucket": "cidmonitoring.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:120412490594:android:3102d13c85987f8469ba3b",
+        "mobilesdk_app_id": "1:527160165132:android:20db832ee239a2546fbf29",
         "android_client_info": {
           "package_name": "com.example.cid"
         }
       },
       "oauth_client": [
         {
-          "client_id": "120412490594-blm2pjq8svnb1p7g294tgtv3j25gfbus.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.cid",
-            "certificate_hash": "f6fb100151b5aa39444fc416d433e73b8fc589f4"
-          }
-        },
-        {
-          "client_id": "120412490594-ls52kuef31cpojnr8uh8k2j4sooie5c3.apps.googleusercontent.com",
+          "client_id": "527160165132-n6s45cqf9qu10rfv27bdijedaaokn9rc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAuIqrjgcaAYjuLf5iJu7w2ykrprt2VOiM"
+          "current_key": "AIzaSyA6V2O_5jT3cTr4H8sCmmhEqjeCw4Pe9vE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "120412490594-ls52kuef31cpojnr8uh8k2j4sooie5c3.apps.googleusercontent.com",
+              "client_id": "527160165132-n6s45cqf9qu10rfv27bdijedaaokn9rc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

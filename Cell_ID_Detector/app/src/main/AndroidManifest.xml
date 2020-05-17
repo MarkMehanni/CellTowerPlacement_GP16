@@ -16,8 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"></activity>
-        <activity android:name=".Sign_up" />
+        <activity android:name=".Add_Event"></activity>
+        <activity android:name=".Signup" />
+        <activity android:name=".Login" />
+        <activity android:name=".home_activity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
