@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2020 at 11:10 PM
+-- Generation Time: May 18, 2020 at 12:25 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -21,25 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `demo`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `address`
---
-
-DROP TABLE IF EXISTS `address`;
-CREATE TABLE IF NOT EXISTS `address` (
-  `id` varchar(55) DEFAULT NULL,
-  `Region` varchar(55) NOT NULL,
-  `streetName` varchar(55) NOT NULL,
-  `buildingNumber` int(55) NOT NULL,
-  `floorNumber` int(55) NOT NULL,
-  `appartment` int(55) NOT NULL,
-  `postalCode` varchar(55) NOT NULL,
-  `userId` varchar(55) NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -245,18 +226,24 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `password` varchar(55) NOT NULL,
   `username` varchar(55) NOT NULL,
+  `lastname` varchar(55) NOT NULL,
+  `phone` varchar(11) NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `dateofbirth` date NOT NULL,
+  `gender` varchar(10) NOT NULL,
   `usertype` varchar(22) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `password`, `username`, `usertype`) VALUES
-(7, '101010', 'Nermeen', 'engineer'),
-(5, '1234', 'Joy', 'admin'),
-(6, '68798', 'Mark', 'engineer');
+INSERT INTO `users` (`id`, `password`, `username`, `lastname`, `phone`, `email`, `dateofbirth`, `gender`, `usertype`) VALUES
+(25, '20845', 'Joy', 'Abdelmasseh', '01277110442', 'Joy98@gmail.com', '1998-10-01', 'Female', 'engineer'),
+(30, '1567', 'Nour', 'Elhuda', '01189700040', 'Nour43@gmail.com', '1997-02-16', 'female', 'engineer'),
+(27, '285008', 'James', 'Abdo', '01587900765', 'James004@yahoo.com', '1998-05-13', 'Male', 'engineer'),
+(1, '1234', 'Mark', 'Samir', '01298756004', 'Mark90@gmail.com', '1998-12-19', 'Male', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

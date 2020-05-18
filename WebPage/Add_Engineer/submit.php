@@ -41,12 +41,11 @@ else
 }
 }
 ?>
-<div class="container">
+   <div class="container">
   
   <div class="alert alert-success">
     <strong>Item added successfully!</strong>
   </div>
   
-
 </body>
 </html>

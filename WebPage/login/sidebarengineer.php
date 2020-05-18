@@ -37,7 +37,7 @@
     <div class="menu-button-line"></div>
     <div class="menu-button-line"></div>
   </div>
-  <a href="./"><div class="button"><i class="fas fa-home"></i>Home</div></a>
+  <a href="./home.html"><div class="button"><i class="fas fa-home"></i>Home</div></a>
   <a href="./user-map.php"><div class="button"><i class="fas fa-binoculars"></i>view antennas</div></a>
   <a href="http://127.0.0.1:5000/"><div class="button"><i class="fas fa-broadcast-tower"></i>test</div></a>
   
