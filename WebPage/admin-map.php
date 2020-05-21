@@ -25,7 +25,7 @@ include_once 'locations_model.php';
 
 
         var i ; var confirmed = 0;
-        for (i = 0; i < locations.length; i++) {
+        for (i = 0; i < locations.length; i++) { //here start to add marker to the map from fetching the array
 
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),

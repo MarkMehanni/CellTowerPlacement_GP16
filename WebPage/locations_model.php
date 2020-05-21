@@ -20,7 +20,8 @@ function add_location(){
     $lat = $_GET['lat'];
     $lng = $_GET['lng'];
     echo $lat ;
-    getsClosest($lng , $lat);
+    //getsClosest($lng , $lat);
+    echo getsClosest($lng , $lat);
     $description =$_GET['description'];
     // Inserts new row with place data.
     $query = sprintf("INSERT INTO locations " .
