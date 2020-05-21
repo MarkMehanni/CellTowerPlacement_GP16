@@ -1,12 +1,12 @@
 <html>
 <head>
 	<title></title >
-	<link rel="stylesheet" type= "text/css" href="/CellTowerPlacement_GP16/style1.css">
+	<link rel="stylesheet" type= "text/css" href="/CellTowerPlacement_GP16/WebPage/style1.css">
 </head>
 <body>
 	<div class="navBar">
 		<h1>
-			<a href="home.php" class="Lemonade">CTP monitor <img class="lemon" src="/CellTowerPlacement_GP16/CellTower2.svg"></a>
+			<a href="home.php" class="Lemonade">CTP monitor <img class="lemon" src="celltower2.svg"></a>
 		</h1>
 		<ul>
 			<li><a href="logg.php" class="login">Login</a></li>
@@ -23,7 +23,7 @@
 		<h1 class="sectionText1">
 			CTP is an applicaton that <br>monitors and suggests the finest <br>place to deploy a cell tower
 		</h1>
-		<img class="illustration" src="../CellTowerPlacement_GP16/celltower2.svg">
+		<img class="illustration" src="celltower2.svg">
 		
 	</div>
 	

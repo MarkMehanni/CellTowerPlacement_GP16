@@ -5,9 +5,9 @@ $result = mysqli_query($connection,"SELECT * FROM users");
 ?>
 <html>
 <head>
-    <link rel="stylesheet" type= "text/css" href="../CellTowerPlacement_GP16/style3.css">
-	<link rel="stylesheet" type= "text/css" href="../CellTowerPlacement_GP16/style4.css">
-	<link rel="stylesheet" type= "text/css" href="../CellTowerPlacement_GP16/style5.css">
+    <link rel="stylesheet" type= "text/css" href="style3.css">
+	<link rel="stylesheet" type= "text/css" href="style4.css">
+	<link rel="stylesheet" type= "text/css" href="style5.css">
 <title>Update Information</title>
 <style>
 table { margin-top: 20px; }
@@ -40,7 +40,7 @@ table { margin-top: 20px; }
 <body >
  <div class="navBar">
 		<h1>
-			<a href="sidebaradmin.php" class="logo">CTP monitor <img class="lemon" src="/CellTowerPlacement_GP16/CellTower2.svg"></a>
+			<a href="sidebaradmin.php" class="logo">CTP monitor <img class="lemon" src="CellTower2.svg"></a>
 		</h1>
 		<ul>
 			<li>welcome admin</li>

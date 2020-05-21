@@ -49,11 +49,3 @@ else
 }
 
 ?>
-<div class="container">
-  
-  <div class="alert alert-success">
-    <strong>Engineer added successfully!</strong>
-  </div> 
-
-</body>
-</html>

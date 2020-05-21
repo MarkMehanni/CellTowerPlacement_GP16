@@ -69,9 +69,8 @@ include 'locations_model.php';
                 "        <table class=\"map1\">\n" +
                 "            <tr>\n" +
                 "                <td><a>Description:</a></td>\n" +
-                "                <td><textarea  id='manual_description' placeholder='Description'> "+lat+" , "+lng+" </textarea></td></tr>\n" +
-                "                <td><input  id='distance' placeholder='Distance' value='<?php getsClosest(54.23,1.32);?>'/></td></tr>\n" +
-                "            <tr><td></td><td><input type='button' value='Save' onclick='saveData("+lat+","+lng+")'/></td></tr>\n" +
+                "                <td><textarea  id='manual_description' placeholder='Description'> </textarea></td></tr>\n" +
+                 "            <tr><td></td><td><input type='button' value='Save' onclick='saveData("+lat+","+lng+")'/></td></tr>\n" +
                  "        </table>\n" +
                 "    </div>"
             });
@@ -195,8 +194,24 @@ include 'locations_model.php';
 
 
     </script>
+    
 
 
 <?php
 include_once 'footer.php';
+// function sayHiBack() {
+//     // Check if we have parameters w1 and w2 being passed to the script through the URL
+
+//     if (isset($_GET["lat"]) && isset($_GET["lng"])) 
+//     {// Put the two words together with a space in the middle to form "hello world"
+ 
+//        $hello = $_GET["lat"] . " " . $_GET["lng"];
+       
+//        // Print out some JavaScript with $hello stuck in there which will put "hello world" into the javascript.
+ 
+//        echo "<script language='text/javascript'>function sayHiFromPHP() { alert('Just wanted to say $hello!'); }</script>";
+ 
+//     }
+ 
+//  }
 ?>

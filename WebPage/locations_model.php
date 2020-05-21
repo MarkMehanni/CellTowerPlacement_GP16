@@ -11,6 +11,7 @@ if(isset($_GET['confirm_location'])) {
 
 
 
+
 function add_location(){
     $con=mysqli_connect ("localhost", 'root', '','demo');
     if (!$con) {
@@ -36,6 +37,8 @@ function add_location(){
     }
 }
 
+
+
 function Add_Distance()
 {
     $con=mysqli_connect ("localhost", 'root', '','demo');
@@ -58,8 +61,10 @@ function Add_Distance()
         die('Invalid query: ' . mysqli_error($con));
     }
 }
+
+
 function getsClosest($lon1 , $lat1)
-{
+{ 
     $con=mysqli_connect ("localhost", 'root', '','demo');
     if (!$con) {
         die('Not connected : ' . mysqli_connect_error());

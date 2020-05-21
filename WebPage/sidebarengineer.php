@@ -3,9 +3,9 @@
     <meta charset="utf-8">
     <title>Cell Tower</title>
     <meta name="keywords" content="Example, Example2"/>
-	<link rel="stylesheet" type= "text/css" href="../CellTowerPlacement_GP16/style3.css">
-	<link rel="stylesheet" type= "text/css" href="../CellTowerPlacement_GP16/style4.css">
-	<link rel="stylesheet" type= "text/css" href="../CellTowerPlacement_GP16/style5.css">
+	<link rel="stylesheet" type= "text/css" href="style3.css">
+	<link rel="stylesheet" type= "text/css" href="style4.css">
+	<link rel="stylesheet" type= "text/css" href="style5.css">
 	<link rel="stylesheet" type= "text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
 <!--<script-->
@@ -31,7 +31,7 @@
   <body>
   <div class="navBar">
 		<h1>
-			<a href="home.php" class="logo">CTP monitor <img class="lemon" src="/CellTowerPlacement_GP16/CellTower2.svg"></a>
+			<a href="home.php" class="logo">CTP monitor <img class="lemon" src="CellTower2.svg"></a>
 		</h1>
 		<ul>
 			
@@ -42,7 +42,7 @@
 <div class="split left">
   <div class="centered"> 
    <img src="antenna.svg" alt="antenna">
-	<a  href="./user-map.php" class="button">View Antennas</a>
+	<a  href="user-map.php" class="button">View Antennas</a>
   </div>
 </div>
 

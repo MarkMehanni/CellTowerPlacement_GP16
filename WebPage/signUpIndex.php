@@ -5,18 +5,18 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" type= "text/css" href="/CellTowerPlacement_GP16/style3.css">
+	<link rel="stylesheet" type= "text/css" href="/CellTowerPlacement_GP16/WebPage/style3.css">
 
 </head>
 <body style="background-image: linear-gradient(to bottom right,white, #808000);">
 	  
 	  	<div class="header">
 		<h1>
-			<a href="home.php" class="logo">CTP monitor <img class="lemon" src="/CellTowerPlacement_GP16/CellTower2.svg"></a>
+			<a href="home.php" class="logo">CTP monitor <img class="lemon" src="/CellTowerPlacement_GP16/WebPage/CellTower2.svg"></a>
 		</h1>
 	</div>
 	<div class="signUpForm">
-            <img src="/CellTowerPlacement_GP16/userIcon.png" class="userImg">
+            <img src="/CellTowerPlacement_GP16/WebPage/userIcon.png" class="userImg">
 			<form  method="post" action="signUp.php" >
 				<h1> Sign Up Now </h1>
 
