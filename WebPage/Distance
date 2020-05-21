@@ -1,0 +1,14 @@
+ var LocationParameters = [$lat2 ,$lon2];
+
+        var SQLQuery = "SELECT `lat`, `lng` FROM `locations`";
+
+        function LocationQuery(LocationParameters) 
+        {
+        var str = '';
+        for (var i = 0; i < LocationParameterstag.length; i++) {
+        str += " AND tags like '%" + LocationParameters[i] + "%' "
+        }
+        return str;
+        }
+        SQLQuery += LocationQuery(LocationParameters);
+        document.write(str);
