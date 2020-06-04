@@ -7,6 +7,8 @@ include 'locations_model.php';
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyA-AB-9XZd-iQby-bNLYPFyb0pR2Qw3orw">
     </script>
+    <script type="text/javascript" src="js/jQuery-3.2.1.min.js">
+    </script>
 
     <div id="map"></div>
     <script>
@@ -57,9 +59,44 @@ include 'locations_model.php';
          * Binds click event to given map and invokes a callback that appends a new marker to clicked location.
          */
         var addMarker = google.maps.event.addListener(map, 'click', function(e) {
+            // var Array = [];
             var lat = e.latLng.lat(); // lat of clicked point
             var lng = e.latLng.lng(); // lng of clicked point
-             var markerId = getMarkerUniqueId(lat, lng); // an that will be used to cache this marker in markers object.
+            
+            // Array.lat = lat;
+            // Array.lng = lng;
+            // Array.push(lat);
+            // Array.push(lng);
+            // console.log(Array)
+            var Latitude = lat;
+            var Longitude = lng;
+            
+            // $.ajax({
+            //     url:"locations_model.php",
+            //     method:"post",
+            //     data: {Latitude: JSON.stringify(Latitude) } ,
+            //     success: function(Result)
+            //     {
+            //         console.log(Result);
+            //     }
+
+            // })
+
+            var ourObj = {};
+            ourObj.data = "Some Data Points";
+            ourObj.Magnitude = [{'lat':Latitude, 'lng': Longitude}];
+            $.ajax({
+                url:"locations_model.php",
+                method:"post",
+                data: {points: JSON.stringify(ourObj) } ,
+                success: function(Result)
+                {
+                    console.log(Result);
+                }
+
+            })
+
+            var markerId = getMarkerUniqueId(lat, lng); // an that will be used to cache this marker in markers object.
             var marker = new google.maps.Marker({
                 position: getLatLng(lat, lng),
                 map: map,
@@ -78,7 +115,6 @@ include 'locations_model.php';
             markers[markerId] = marker; // cache marker in markers object
             bindMarkerEvents(marker); // bind right click event to marker
             bindMarkerinfo(marker); // bind infowindow with click event to marker open info data to enter
-          
         });
 
 
