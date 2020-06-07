@@ -89,7 +89,7 @@ include_once 'locations_model.php';
             <td><textarea disabled id='description' placeholder='Description'></textarea></td>
         </tr>
         <tr>
-            <td><b>Confirm Location ?:</b></td>
+            <td><b>Confirm Cell Tower :</b></td>
             <td><input id='confirmed' type='checkbox' name='confirmed'></td>
         </tr>
 

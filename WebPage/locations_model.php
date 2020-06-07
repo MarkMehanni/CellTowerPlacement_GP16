@@ -37,17 +37,20 @@ function add_location(){
     }
     $lat = $_GET['lat'];
     $lng = $_GET['lng'];
-    echo $lat ;
-    //getsClosest($lng , $lat);
-    //echo ' alert("getsClosest($lng , $lat)")';
+    
     $description =$_GET['description'];
+    $Technology = $_GET['Technology'];
+    $Coverage = $_GET['Coverage'];
+
     // Inserts new row with place data.
     $query = sprintf("INSERT INTO locations " .
-        " (id, lat,lng,  description) " .
-        " VALUES (NULL, '%s', '%s', '%s');",
+        " (id, lat,lng,  description , Technology , Coverage) " .
+        " VALUES (NULL, '%s', '%s', '%s' ,'%s' , '%s' );",
         mysqli_real_escape_string($con,$lat),
         mysqli_real_escape_string($con,$lng),
-        mysqli_real_escape_string($con,$description));
+        mysqli_real_escape_string($con,$description),
+        mysqli_real_escape_string($con,$Technology),
+        mysqli_real_escape_string($con,$Coverage));
 
     $result = mysqli_query($con,$query);
     echo"Inserted Successfully";

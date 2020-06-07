@@ -7,8 +7,7 @@ include 'locations_model.php';
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyA-AB-9XZd-iQby-bNLYPFyb0pR2Qw3orw">
     </script>
-    <script type="text/javascript" src="js/jQuery-3.2.1.min.js">
-    </script>
+    
 
     <div id="map"></div>
     <script>
@@ -107,7 +106,14 @@ include 'locations_model.php';
                 "            <tr>\n" +
                 "                <td><a>Description:</a></td>\n" +
                 "                <td><textarea  id='manual_description' placeholder='Description'> </textarea></td></tr>\n" +
-                "                <td><input  id='distance' placeholder='Distance' value='<?php getsClosest(54.23,1.32);?>'/></td></tr>\n" +
+
+                "                <td><a>Technology:</a></td>\n" +
+                "                <td><textarea  id='Technology' placeholder='Technology'> </textarea></td></tr>\n" +
+               
+                "                <td><a>Range Of CellTower:</a></td>\n" +
+                "                <td><textarea  id='Coverage' placeholder='Coverage'> </textarea></td></tr>\n" +
+               
+                // "                <td><input  id='distance' placeholder='Distance' value='<?php getsClosest(54.23,1.32);?>'/></td></tr>\n" +
                 "            <tr><td></td><td><input type='button' value='Save' onclick='saveData("+lat+","+lng+")'/></td></tr>\n" +
                  "        </table>\n" +
                 "    </div>"
@@ -195,8 +201,12 @@ include 'locations_model.php';
          */
         function saveData(lat,lng) {
             var description = document.getElementById('manual_description').value;
-            var url = 'locations_model.php?add_location&description=' + description + '&lat=' + lat + '&lng=' + lng;
-           // var sql = 'locations_model.php?Add_Distance&lat=' + lat + '&lng=' + lng;
+            var Technology = document.getElementById('Technology').value;
+            var Coverage = document.getElementById('Coverage').value;
+
+
+            var url = 'locations_model.php?add_location&description=' + description + '&lat=' + lat + '&lng=' + lng + '&Technology=' + Technology + '&Coverage=' + Coverage ;
+
             downloadUrl(url, function(data, responseCode) {
                 if (responseCode === 200  && data.length > 1) {
                     var markerId = getMarkerUniqueId(lat,lng); // get marker id by using clicked point's coordinate
@@ -236,19 +246,19 @@ include 'locations_model.php';
 
 <?php
 include_once 'footer.php';
-function sayHiBack() {
-    // Check if we have parameters w1 and w2 being passed to the script through the URL
+// function sayHiBack() {
+//     // Check if we have parameters w1 and w2 being passed to the script through the URL
 
-    if (isset($_GET["lat"]) && isset($_GET["lng"])) 
-    {// Put the two words together with a space in the middle to form "hello world"
+//     if (isset($_GET["lat"]) && isset($_GET["lng"])) 
+//     {// Put the two words together with a space in the middle to form "hello world"
  
-       $hello = $_GET["lat"] . " " . $_GET["lng"];
+//        $hello = $_GET["lat"] . " " . $_GET["lng"];
        
-       // Print out some JavaScript with $hello stuck in there which will put "hello world" into the javascript.
+//        // Print out some JavaScript with $hello stuck in there which will put "hello world" into the javascript.
  
-       echo "<script language='text/javascript'>function sayHiFromPHP() { alert('Just wanted to say $hello!'); }</script>";
+//        echo "<script language='text/javascript'>function sayHiFromPHP() { alert('Just wanted to say $hello!'); }</script>";
  
-    }
+//     }
  
- }
+//  }
 ?>
