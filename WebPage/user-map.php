@@ -1,14 +1,17 @@
 <?php
+// session_start();
 include_once 'header.php';
 include 'locations_model.php';
+
+//include 'Nearest_Distance.php';
 //get_unconfirmed_locations();exit;
+
 ?>
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?language=en&key=AIzaSyA-AB-9XZd-iQby-bNLYPFyb0pR2Qw3orw">
     </script>
-    
-
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <div id="map"></div>
     <script>
         /**
@@ -61,7 +64,7 @@ include 'locations_model.php';
             // var Array = [];
             var lat = e.latLng.lat(); // lat of clicked point
             var lng = e.latLng.lng(); // lng of clicked point
-            
+
             // Array.lat = lat;
             // Array.lng = lng;
             // Array.push(lat);
@@ -85,7 +88,7 @@ include 'locations_model.php';
             ourObj.data = "Some Data Points";
             ourObj.Magnitude = [{'lat':Latitude, 'lng': Longitude}];
             $.ajax({
-                url:"locations_model.php",
+                url:"Nearest_Distance.php",
                 method:"post",
                 data: {points: JSON.stringify(ourObj) } ,
                 success: function(Result)
@@ -94,6 +97,8 @@ include 'locations_model.php';
                 }
 
             })
+        
+     
 
             var markerId = getMarkerUniqueId(lat, lng); // an that will be used to cache this marker in markers object.
             var marker = new google.maps.Marker({
@@ -101,27 +106,59 @@ include 'locations_model.php';
                 map: map,
                 animation: google.maps.Animation.DROP,
                 id: 'marker_' + markerId,
-                html: "    <div id='info_"+markerId+"'>\n" +
+                html: "    <div  id='info_"+markerId+"'>\n" +
+                 "         <form  method='+POST+' action='Confirmation_Data.html'>\n"+
                 "        <table class=\"map1\">\n" +
                 "            <tr>\n" +
                 "                <td><a>Description:</a></td>\n" +
-                "                <td><textarea  id='manual_description' placeholder='Description'> </textarea></td></tr>\n" +
+                "                <td><textarea  id='manual_description' placeholder='Description' name='description'></textarea></td></tr>\n" +
 
                 "                <td><a>Technology:</a></td>\n" +
-                "                <td><textarea  id='Technology' placeholder='Technology'> </textarea></td></tr>\n" +
+                "                <td><textarea  id='Technology' placeholder='Technology'name='Technology'></textarea></td></tr>\n" +
                
-                "                <td><a>Range Of CellTower:</a></td>\n" +
-                "                <td><textarea  id='Coverage' placeholder='Coverage'> </textarea></td></tr>\n" +
-               
-                // "                <td><input  id='distance' placeholder='Distance' value='<?php getsClosest(54.23,1.32);?>'/></td></tr>\n" +
-                "            <tr><td></td><td><input type='button' value='Save' onclick='saveData("+lat+","+lng+")'/></td></tr>\n" +
+                "                <td><a>Coverage:</a></td>\n" +
+                "                <td><textarea  id='Coverage' placeholder='Coverage' name='Coverage'></textarea></td></tr>\n" +
+
+                "                <td><a>Traffic:</a></td>\n" +
+                "                <td><textarea  id='Traffic' placeholder='Traffic' name='Traffic'></textarea></td></tr>\n" +
+
+                "                <td><a>RSCP:</a></td>\n" +
+                "                <td><textarea  id='rSCP' placeholder='RSCP' name='rSCP'></textarea></td></tr>\n" +
+
+                "                <td><a>Ecno:</a></td>\n" +
+                "                <td><textarea  id='Ecno' placeholder='Ecno' name='Ecno'></textarea></td></tr>\n" +
+                "                <td><a>Cell Label:</a></td>\n" +
+                "                <td><textarea  id='CellLabel' placeholder='Cell Label' name='CellLabel'></textarea></td></tr>\n" +
+                "                <td><input  id='Distance' name='distance' placeholder='Distance' value='"+ '<?php 
+                                  echo unserialize($_SESSION["Nearest_Distance"]);
+                                    ?>'+"'/></td></tr>\n" +
+                "         <tr><td></td><td><input type='submit' id='SavaData' value='Save' onclick='saveData("+lat+","+lng+")'/></td></tr>\n" +
                  "        </table>\n" +
+                 "</form>\n"+
                 "    </div>"
             });
+     
+            
+            window.onload = function() 
+            {
+                // setup the button click
+                document.getElementById("SavaData").onclick = function() {
+                    doWork()
+                };
+            }
+            function doWork() {
+                // ajax the JSON to the server
+            $.post("receiver", Latitude ,Longitude , function(){
+
+            });
+                // stop link reloading the page
+            event.preventDefault();
+            }
             markers[markerId] = marker; // cache marker in markers object
             bindMarkerEvents(marker); // bind right click event to marker
             bindMarkerinfo(marker); // bind infowindow with click event to marker open info data to enter
         });
+      
 
 
         /**
@@ -170,7 +207,7 @@ include 'locations_model.php';
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map,
-                icon :   locations[i][4] === '1' ?  red_icon  : purple_icon,
+                icon :   locations[i][10] === '1' ?  red_icon  : purple_icon,
                 html: "<div>\n" +
                 "<table class=\"map1\">\n" +
                 "<tr>\n" +
@@ -183,8 +220,8 @@ include 'locations_model.php';
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
                     infowindow = new google.maps.InfoWindow();
-                    confirmed =  locations[i][4] === '1' ?  'checked'  :  0;
-                    $("#confirmed").prop(confirmed,locations[i][4]);
+                    confirmed =  locations[i][10] === '1' ?  'checked'  :  0;
+                    $("#confirmed").prop(confirmed,locations[i][10]);
                     $("#id").val(locations[i][0]);
                     $("#description").val(locations[i][3]);
                     $("#form").show();
@@ -200,12 +237,37 @@ include 'locations_model.php';
          * @param lng A longitude of marker.
          */
         function saveData(lat,lng) {
+            
             var description = document.getElementById('manual_description').value;
             var Technology = document.getElementById('Technology').value;
             var Coverage = document.getElementById('Coverage').value;
+            var Traffic = document.getElementById('Traffic').value;
+            var rSCP = document.getElementById('rSCP').value;
+            var Ecno = document.getElementById('Ecno').value;
+            var CellLabel = document.getElementById('CellLabel').value;
+            var Distance = document.getElementById('Distance').value;
+            var Latitude = lat ;
+            var Longitude = lng ;
 
+            // var ourObj = {};
+            // ourObj.data = "Some Data Points";
+            // ourObj.Magnitude = [{'lat':Latitude, 'lng': Longitude , 'Desc':description,'Tech':Technology,'Coverage':Coverage}];
+            // $.ajax({
+            //     url:"hoopa.php",
+            //     method:"post",
+            //     data: {points: JSON.stringify(ourObj) } ,
+            //     success: function(Result)
+            //     {
+            //         console.log(Result);
+            //     }
+            // });
+            
 
-            var url = 'locations_model.php?add_location&description=' + description + '&lat=' + lat + '&lng=' + lng + '&Technology=' + Technology + '&Coverage=' + Coverage ;
+            var url = 'locations_model.php?add_location&description=' + description + '&lat=' + lat + '&lng=' + lng 
+                                                                      + '&Technology=' + Technology + '&Coverage=' + Coverage 
+                                                                      + '&Traffic=' + Traffic + '&rSCP=' + rSCP + '&Ecno=' 
+                                                                      + Ecno + '&CellLabel=' + CellLabel + '&Distance=' + Distance;
+                                                     
 
             downloadUrl(url, function(data, responseCode) {
                 if (responseCode === 200  && data.length > 1) {
@@ -222,6 +284,7 @@ include 'locations_model.php';
                     infowindow.setContent("<div style='color: red; font-size: 25px;'>Inserting Errors</div>");
                 }
             });
+            //header("Location:hoopa.php");
         }
 
         function downloadUrl(url, callback) {
@@ -235,7 +298,7 @@ include 'locations_model.php';
                 }
             };
 
-            request.open('GET', url, true);
+            request.open('GET', url , true);
             request.send(null);
         }
 
@@ -246,19 +309,4 @@ include 'locations_model.php';
 
 <?php
 include_once 'footer.php';
-// function sayHiBack() {
-//     // Check if we have parameters w1 and w2 being passed to the script through the URL
-
-//     if (isset($_GET["lat"]) && isset($_GET["lng"])) 
-//     {// Put the two words together with a space in the middle to form "hello world"
- 
-//        $hello = $_GET["lat"] . " " . $_GET["lng"];
-       
-//        // Print out some JavaScript with $hello stuck in there which will put "hello world" into the javascript.
- 
-//        echo "<script language='text/javascript'>function sayHiFromPHP() { alert('Just wanted to say $hello!'); }</script>";
- 
-//     }
- 
-//  }
 ?>

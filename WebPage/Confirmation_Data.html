@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Confirmation Cell-Tower Data</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <link rel="stylesheet" type= "text/css" href="/CellTowerPlacement_GP16/WebPage/style3.css">
+    
+    </head>
+<body   style="background-image: linear-gradient(to bottom right,white, #808000);">
+     
+    <form  name="description">
+        <INPUT TYPE="hidden" NAME="desc">
+        </form>
+        <form  name="Technology">
+        <INPUT TYPE="hidden" NAME="Tec">
+        </form>
+        <form  name="Coverage">
+        <INPUT TYPE="hidden" NAME="cov">
+        </form>
+        <form  name="Traffic">
+        <INPUT TYPE="hidden" NAME="traffic">
+        </form>
+        <form  name="rSCP">
+        <INPUT TYPE="hidden" NAME="rscp">
+        </form>
+        <form  name="Ecno">
+        <INPUT TYPE="hidden" NAME="ecno">
+        </form>
+        <form  name="CellLabel">
+        <INPUT TYPE="hidden" NAME="label">
+        </form>
+        <form  name="distance">
+        <INPUT TYPE="hidden" NAME="distance">
+        </form>
+    
+    <div class="header">
+		<h1>
+			<a href="user-map.php" class="logo"> CTP monitor <img class="lemon" src="/CellTowerPlacement_GP16/WebPage/CellTower2.svg"></a>
+		</h1>
+    </div>
+    <form  method="POST" action="http://localhost:8080/Predict" >
+        
+        <textarea
+         Disabled type = "text" id ="description" name ="Description" class ="inputBox" onload="document.innerHTML(desc)" > 
+         </textarea>
+        <br>
+
+        <textarea Disabled type = "text" id="Technology" name ="Technology" class ="inputBox" onload="document.innerHTML(tec)">
+         </textarea>
+		<br>  
+
+        <textarea Disabled type ="number" id="Coverage" name="Coverage" class ="inputBox" onload="document.innerHTML(coverage)"> 
+        </textarea>
+        <br>  
+
+        <textarea Disabled type = "number" id="Traffic" name ="Traffic" class ="inputBox" onload="document.innerHTML(Traffic)">
+        </textarea>    
+        <br> 
+
+        <textarea Disabled type = "RSCP" id="rSCP" name ="RSCP" class ="inputBox" onload="document.innerHTML(RSCP)">	
+        </textarea>	
+        <br> 
+
+        <textarea Disabled type ="number" id="Ecno" name="Ecno" class ="inputBox" onload="document.innerHTML(Ecno)">
+        </textarea>
+        <br>
+        				                            
+        <textarea Disabled type = "text" id="CellLabel" name ="Cell_Label" class ="inputBox" onload="document.innerHTML(CellLabel)">	
+        </textarea>	
+        <br>  
+
+        <textarea  Disabled type = "hidden" id="Nearest" name ="Nearest" class ="inputBox"onload="document.innerHTML(Nearest)"> 
+        </textarea>
+        <br>     
+        
+        <button type = "submit"  class="signUp_button" id="submitbtn" name="submit" value="Complete!" href="user-map.php"> Complete! </button>
+        <br>
+</form>
+    
+<SCRIPT LANGUAGE="javascript" type="text/javascript">
+    
+    var locate = window.location;
+    document.description.desc.value = locate;
+    
+    var text = document.description.desc.value;
+    
+    function delineate1(str,target)
+    {
+    var n = target.length;
+	theleft = str.indexOf("description") + n+ 1;
+	theright = str.indexOf("Technology")-1;
+	
+    return str.substring(theleft, theright);
+    }
+	
+	function delineate2(str,target)
+    {
+	 var n = target.length;
+
+	theleft = str.indexOf("Technology") + n+ 1;
+	theright = str.indexOf("Coverage") -1;
+	
+    return str.substring(theleft, theright);
+    }
+
+    function delineate3(str,target)
+    {
+	 var n = target.length;
+
+	theleft = str.indexOf("Coverage") + n+ 1;
+	theright = str.indexOf("Traffic") -1;
+	
+    return str.substring(theleft, theright);
+    }
+
+    function delineate4(str,target)
+    {
+	 var n = target.length;
+
+	theleft = str.indexOf("Traffic") + n+ 1;
+	theright = str.indexOf("rSCP") -1;
+	
+    return str.substring(theleft, theright);
+    }
+
+    function delineate5(str,target)
+    {
+	 var n = target.length;
+
+	theleft = str.indexOf("rSCP") + n+ 1;
+	theright = str.indexOf("Ecno") -1;
+	
+    return str.substring(theleft, theright);
+    }
+
+    function delineate6(str,target)
+    {
+	 var n = target.length;
+
+	theleft = str.indexOf("Ecno") + n+ 1;
+	theright = str.indexOf("CellLabel") -1;
+	
+    return str.substring(theleft, theright);
+    }
+
+    function delineate7(str,target)
+    {
+    
+	 var n = target.length;
+
+theleft = str.indexOf("CellLabel") + n+ 1;
+theright = str.indexOf("distance") -1;
+
+return str.substring(theleft, theright);
+    }
+    function delineate8(str,target)
+    {
+        point = str.lastIndexOf("=");
+    return(str.substring(point+1,str.length));
+    }
+
+   
+   
+    document.getElementById("description").innerHTML =  "Description:  " + delineate1(text,"description");
+	
+    document.getElementById("Technology").innerHTML =  "Technology:  "+ delineate2(text,"Technology");
+
+    document.getElementById("Coverage").innerHTML =  "Coverage:  " + delineate3(text,"Coverage");
+	
+    document.getElementById("Traffic").innerHTML =  "Traffic:  "+ delineate4(text,"Traffic");
+
+    document.getElementById("rSCP").innerHTML =  "RSCP:  " + delineate5(text,"rSCP");
+	
+    document.getElementById("Ecno").innerHTML =  "Ecno:  "+ delineate6(text,"Ecno");
+
+    document.getElementById("CellLabel").innerHTML =  "Cell_Label:  " + delineate7(text,"CellLabel");
+	
+    document.getElementById("Nearest").innerHTML =  "Nearest:  "+ delineate8(text,"distance");
+   
+    </SCRIPT>
+   
+</body>
+</html>

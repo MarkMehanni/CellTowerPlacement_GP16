@@ -30,14 +30,14 @@ include_once 'locations_model.php';
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map,
-                icon :   locations[i][4] === '1' ?  red_icon  : purple_icon,
+                icon :   locations[i][10] === '1' ?  red_icon  : purple_icon,
                 html: document.getElementById('form')
             });
 
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
-                    confirmed =  locations[i][4] === '1' ?  'checked'  :  0;
-                    $("#confirmed").prop(confirmed,locations[i][4]);
+                    confirmed =  locations[i][10] === '1' ?  'checked'  :  0;
+                    $("#confirmed").prop(confirmed,locations[i][10]);
                     $("#id").val(locations[i][0]);
                     $("#description").val(locations[i][3]);
                     $("#form").show();
@@ -81,7 +81,7 @@ include_once 'locations_model.php';
 
 </script>
 
-<div style="display: none" id="form">
+<div style="background-Color:yellow" id="form">
     <table class="map1">
         <tr>
             <input name="id" type='hidden' id='id'/>
