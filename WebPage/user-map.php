@@ -3,6 +3,22 @@
 include_once 'header.php';
 include 'locations_model.php';
 
+/*html = str_get_html("<div id='demo'></div>");
+$text = $html->find('div[id=demo]', 0)->innertext;
+echo $text; */
+
+/*$lat = "<div id='lat1'></div>";
+echo $lat;*/
+
+
+/*$lng = "<div id='lng1'></div>";
+echo $lng;
+$doc = new DomDocument();
+$doc->loadHTML($lng); // That's the addition
+$longitude = $doc->getElementById('lng1');*/
+//echo floatval($longitude->textContent);
+//$lat = echo "<div id='demo'></div>"; 
+
 //include 'Nearest_Distance.php';
 //get_unconfirmed_locations();exit;
 
@@ -29,74 +45,40 @@ include 'locations_model.php';
         };
         map = new google.maps.Map(document.getElementById('map'), myOptions);
 
-        /**
-         * Global marker object that holds all markers.
-         * @type {Object.<string, google.maps.LatLng>}
-         */
         var markers = {};
 
-        /**
-         * Concatenates given lat and lng with an underscore and returns it.
-         * This id will be used as a key of marker to cache the marker in markers object.
-         * @param {!number} lat Latitude.
-         * @param {!number} lng Longitude.
-         * @return {string} Concatenated marker id.
-         */
         var getMarkerUniqueId= function(lat, lng) {
             return lat + '_' + lng;
         };
 
-        /**
-         * Creates an instance of google.maps.LatLng by given lat and lng values and returns it.
-         * This function can be useful for getting new coordinates quickly.
-         * @param {!number} lat Latitude.
-         * @param {!number} lng Longitude.
-         * @return {google.maps.LatLng} An instance of google.maps.LatLng object
-         */
+       
         var getLatLng = function(lat, lng) {
             return new google.maps.LatLng(lat, lng);
         };
-
-        /**
-         * Binds click event to given map and invokes a callback that appends a new marker to clicked location.
-         */
         var addMarker = google.maps.event.addListener(map, 'click', function(e) {
             // var Array = [];
             var lat = e.latLng.lat(); // lat of clicked point
             var lng = e.latLng.lng(); // lng of clicked point
 
-            // Array.lat = lat;
-            // Array.lng = lng;
-            // Array.push(lat);
-            // Array.push(lng);
-            // console.log(Array)
             var Latitude = lat;
             var Longitude = lng;
-            
+            //document.getElementById("lat1").innerHTML = Latitude;
+            //document.getElementById("lng1").innerHTML = Longitude;
+
+           
+            // var ourObj = {};
+            // ourObj.data = "Some Data Points";
+            // ourObj.Magnitude = [{'lat':Latitude, 'lng': Longitude}];
             // $.ajax({
-            //     url:"locations_model.php",
+            //     url:"Nearest_Distance.php",
             //     method:"post",
-            //     data: {Latitude: JSON.stringify(Latitude) } ,
+            //     data: {points: JSON.stringify(ourObj) } ,
             //     success: function(Result)
             //     {
             //         console.log(Result);
             //     }
 
             // })
-
-            var ourObj = {};
-            ourObj.data = "Some Data Points";
-            ourObj.Magnitude = [{'lat':Latitude, 'lng': Longitude}];
-            $.ajax({
-                url:"Nearest_Distance.php",
-                method:"post",
-                data: {points: JSON.stringify(ourObj) } ,
-                success: function(Result)
-                {
-                    console.log(Result);
-                }
-
-            })
         
      
 
@@ -111,7 +93,7 @@ include 'locations_model.php';
                 "        <table class=\"map1\">\n" +
                 "            <tr>\n" +
                 "                <td><a>Description:</a></td>\n" +
-                "                <td><textarea  id='manual_description' placeholder='Description' name='description'></textarea></td></tr>\n" +
+                "                <td><textarea id='manual_description' placeholder='Description' name='description' ></textarea></td></tr>\n" +
 
                 "                <td><a>Technology:</a></td>\n" +
                 "                <td><textarea  id='Technology' placeholder='Technology'name='Technology'></textarea></td></tr>\n" +
@@ -129,9 +111,6 @@ include 'locations_model.php';
                 "                <td><textarea  id='Ecno' placeholder='Ecno' name='Ecno'></textarea></td></tr>\n" +
                 "                <td><a>Cell Label:</a></td>\n" +
                 "                <td><textarea  id='CellLabel' placeholder='Cell Label' name='CellLabel'></textarea></td></tr>\n" +
-                "                <td><input  id='Distance' name='distance' placeholder='Distance' value='"+ '<?php 
-                                  echo unserialize($_SESSION["Nearest_Distance"]);
-                                    ?>'+"'/></td></tr>\n" +
                 "         <tr><td></td><td><input type='submit' id='SavaData' value='Save' onclick='saveData("+lat+","+lng+")'/></td></tr>\n" +
                  "        </table>\n" +
                  "</form>\n"+
@@ -245,28 +224,32 @@ include 'locations_model.php';
             var rSCP = document.getElementById('rSCP').value;
             var Ecno = document.getElementById('Ecno').value;
             var CellLabel = document.getElementById('CellLabel').value;
-            var Distance = document.getElementById('Distance').value;
+            // var Distance = document.getElementById('Distance').value;
             var Latitude = lat ;
             var Longitude = lng ;
 
-            // var ourObj = {};
-            // ourObj.data = "Some Data Points";
-            // ourObj.Magnitude = [{'lat':Latitude, 'lng': Longitude , 'Desc':description,'Tech':Technology,'Coverage':Coverage}];
-            // $.ajax({
-            //     url:"hoopa.php",
-            //     method:"post",
-            //     data: {points: JSON.stringify(ourObj) } ,
-            //     success: function(Result)
-            //     {
-            //         console.log(Result);
-            //     }
-            // });
+            // alert(Longitude );
+            // alert(Latitude );
+
+            var ourObj = {};
+            ourObj.data = "Some Data Points";
+            ourObj.Magnitude = [{'lat':Latitude, 'lng': Longitude}];
+            $.ajax({
+                url:"Nearest_Distance.php",
+                method:"post",
+                data: {points: JSON.stringify(ourObj) } ,
+                success: function(Result)
+                {
+                    console.log(Result);
+                }
+            });
+            
             
 
             var url = 'locations_model.php?add_location&description=' + description + '&lat=' + lat + '&lng=' + lng 
                                                                       + '&Technology=' + Technology + '&Coverage=' + Coverage 
                                                                       + '&Traffic=' + Traffic + '&rSCP=' + rSCP + '&Ecno=' 
-                                                                      + Ecno + '&CellLabel=' + CellLabel + '&Distance=' + Distance;
+                                                                      + Ecno + '&CellLabel=' + CellLabel ;
                                                      
 
             downloadUrl(url, function(data, responseCode) {

@@ -2,33 +2,13 @@
 require("db.php");
 session_start();
 
-// Gets data from URL parameters.
+
 if(isset($_GET['add_location'])) {
     add_location();
 }
 if(isset($_GET['confirm_location'])) {
     confirm_location();
 }
-//dah elly sh'3alll 
-// print_r($_POST);
-// $LatitudeObj = json_decode($_POST['Latitude'] );
-// echo "Latitude of "  , $LatitudeObj;
-// echo "Array : ".$_GET['Array']."<br>";
-
-//  if (isset($_POST["points"])) 
-//  {
-// 	    // Decode our JSON into PHP objects we can use
-// 	    $points = json_decode($_POST["points"]);
-// 	    // Access our object's data and array values.
-// 	  //  echo "Data is: " . $points->data ;
-//         //echo "Latitude =  " . $points->Magnitude[0]->lat . ", Longitude = " . $points->Magnitude[0]->lng;
-//         $Latitude = $points->Magnitude[0]->lat ; 
-//         $Longitude =  $points->Magnitude[0]->lng;
-//         echo $Latitude . " previous was latitude , next is longitude " . $Longitude  ." Space fasddyyyyy  ";        
-//         $Nearest = getsClosest($Latitude ,  $Longitude);
-//         echo $Nearest ."Nearest distance";
-// 	}
-   
 
 
 function add_location(){
@@ -36,9 +16,14 @@ function add_location(){
     if (!$con) {
         die('Not connected : ' . mysqli_connect_error());
     }
+
    
     $lat = $_GET['lat'];
     $lng = $_GET['lng'];
+
+    $Distance = getsClosest($lat, $lng);
+    $_SESSION['CalculatedDistance']= serialize($Distance);
+
     $description =$_GET['description'];
     $Technology = $_GET['Technology'];
     $Coverage = $_GET['Coverage'];
@@ -46,7 +31,6 @@ function add_location(){
     $rSCP = $_GET['rSCP'];
     $Ecno = $_GET['Ecno'];
     $CellLabel = $_GET['CellLabel'];
-    $Distance = $_GET['Distance'];
    
 
     // Inserts new row with place data.
@@ -108,7 +92,7 @@ function getsClosest($Latitude , $Longitude)
 
  $milesarray=array();
  if($result = mysqli_query($con, $sql)){
-    if(mysqli_num_rows($result) > 1){
+    if(mysqli_num_rows($result) > 0){
  while($row = mysqli_fetch_array($result))
         {
     $theta = $Longitude - $row['lng'];

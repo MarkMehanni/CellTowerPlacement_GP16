@@ -1,3 +1,4 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "c:\\xampp\\htdocs\\CellTowerPlacement_GP16\\WebPage\\venv2\\Scripts\\python.exe"
 }
