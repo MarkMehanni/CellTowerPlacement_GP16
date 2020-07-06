@@ -2,11 +2,7 @@
 include_once 'header.php';
 include_once 'locations_model.php';
 ?>
-
-
 <div id="map"></div>
-
-<!------ Include the above in your HEAD tag ---------->
 <script>
     var map;
     var marker;
@@ -25,7 +21,7 @@ include_once 'locations_model.php';
 
 
         var i ; var confirmed = 0;
-        for (i = 0; i < locations.length; i++) { //here start to add marker to the map from fetching the array
+        for (i = 0; i < locations.length; i++) { 
 
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
@@ -40,6 +36,7 @@ include_once 'locations_model.php';
                     $("#confirmed").prop(confirmed,locations[i][10]);
                     $("#id").val(locations[i][0]);
                     $("#description").val(locations[i][3]);
+                    $("#predict").val(locations[i][12]);
                     $("#form").show();
                     infowindow.setContent(marker.html);
                     infowindow.open(map, marker);
@@ -87,6 +84,10 @@ include_once 'locations_model.php';
             <input name="id" type='hidden' id='id'/>
             <td><a>Description:</a></td>
             <td><textarea disabled id='description' placeholder='Description'></textarea></td>
+        </tr>
+        <tr>
+            <td><a>Prediction:</a></td>
+            <td><textarea disabled id='predict'  placeholder='Predict'></textarea></td>
         </tr>
         <tr>
             <td><b>Confirm Cell Tower :</b></td>

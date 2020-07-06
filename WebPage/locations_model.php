@@ -2,7 +2,6 @@
 require("db.php");
 session_start();
 
-
 if(isset($_GET['add_location'])) {
     add_location();
 }
@@ -10,13 +9,11 @@ if(isset($_GET['confirm_location'])) {
     confirm_location();
 }
 
-
 function add_location(){
     $con=mysqli_connect ("localhost", 'root', '','demo');
     if (!$con) {
         die('Not connected : ' . mysqli_connect_error());
     }
-
    
     $lat = $_GET['lat'];
     $lng = $_GET['lng'];
@@ -32,8 +29,6 @@ function add_location(){
     $Ecno = $_GET['Ecno'];
     $CellLabel = $_GET['CellLabel'];
    
-
-    // Inserts new row with place data.
     $query = sprintf("INSERT INTO locations " .
         " (id, lat,lng,  description , Technology , Coverage ,Traffic , rSCP , Ecno , CellLabel, Distance) " .
         " VALUES (NULL, '%s', '%s', '%s' ,'%s' , '%s' , '%s' , '%s' , '%s', '%s', '%s');",
@@ -55,7 +50,10 @@ function add_location(){
         die('Invalid query: ' . mysqli_error($con));
     }
 
+    $command = escapeshellcmd('C:\Python\python.exe C:/xampp/htdocs/CellTowerPlacement_GP16/WebPage/classifer.py');
+    $output = shell_exec($command);       
 }
+
 
 function Add_Distance()
 {
@@ -66,7 +64,7 @@ function Add_Distance()
     $lat = $_GET['lat'];
     $lng = $_GET['lng'];
     echo $lat ;
-    // Inserts new row with place data.
+
     $query = sprintf("INSERT INTO distances " .
         " ( lat,lng ) " .
         " VALUES ( '%s', '%s');",
@@ -113,7 +111,6 @@ function confirm_location(){
     }
     $id =$_GET['id'];
     $confirmed =$_GET['confirmed'];
-    // update location with confirm if admin confirm.
     $query = "update locations set location_status = $confirmed WHERE id = $id ";
     $result = mysqli_query($con,$query);
     echo "Inserted Successfully";
@@ -126,21 +123,15 @@ function get_confirmed_locations(){
     if (!$con) {
         die('Not connected : ' . mysqli_connect_error());
     }
-    // update location with location_status if admin location_status.
-    $sqldata = mysqli_query($con,"
-select id ,lat,lng ,description,Technology,Coverage,Traffic,rSCP,Ecno,CellLabel,location_status as isconfirmed
-from locations WHERE  location_status = 1
-  ");
-
+    $sqldata = mysqli_query($con,"select id ,lat,lng ,description,Technology,Coverage,
+    Traffic,rSCP,Ecno,CellLabel,location_status as isconfirmed
+    from locations WHERE  location_status = 1");
     $rows = array();
-
     while($r = mysqli_fetch_assoc($sqldata)) {
         $rows[] = $r;
-
     }
 
     $indexed = array_map('array_values', $rows);
-    //  $array = array_filter($indexed);
 
     echo json_encode($indexed);
     if (!$rows) {
@@ -152,20 +143,13 @@ function get_all_locations(){
     if (!$con) {
         die('Not connected : ' . mysqli_connect_error());
     }
-    // update location with location_status if admin location_status.
-    $sqldata = mysqli_query($con,"
-select id ,lat,lng,description,Technology,Coverage,Traffic,rSCP,Ecno,CellLabel,location_status as isconfirmed
-from locations
-  ");
-
+    $sqldata = mysqli_query($con,"select id ,lat,lng,description,Technology
+    ,Coverage,Traffic,rSCP,Ecno,CellLabel,location_status,Distance,Prediction as isconfirmed from locations");
     $rows = array();
     while($r = mysqli_fetch_assoc($sqldata)) {
         $rows[] = $r;
-
     }
   $indexed = array_map('array_values', $rows);
-  //  $array = array_filter($indexed);
-
     echo json_encode($indexed);
     if (!$rows) {
         return null;

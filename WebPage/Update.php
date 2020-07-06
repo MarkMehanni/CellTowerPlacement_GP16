@@ -11,23 +11,17 @@ $result = mysqli_query($connection,"SELECT * FROM users");
 <title>Update Information</title>
 <style>
 table { margin-top: 20px; }
-     
-	  
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
 }
-
 #customers tr:nth-child(even){background-color: #f2f2f2;}
-
 #customers tr:hover {background-color: #ddd;}
-
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -51,7 +45,7 @@ table { margin-top: 20px; }
 <table id="customers">
   <tr>
     <th>User Name</th>
-	<th>Last Name</th>
+	<th>Full Name</th>
 	<th>User Type</th>
 	<th>Action</th>
   </tr>
@@ -66,7 +60,7 @@ while($row = mysqli_fetch_array($result)) {
 <td><?php echo $row["lastname"]; ?></td><br>
 <td><?php echo $row["usertype"]; ?></td><br>
 
-<td><a href="update_admin.php?id=<?php echo $row["id"]; ?>">Update</a></td><br>
+<td><a href="update_admin.php?id=<?php echo $row["id"]; ?>">Update Information</a></td><br>
 </tr>
 <?php
 $i++;

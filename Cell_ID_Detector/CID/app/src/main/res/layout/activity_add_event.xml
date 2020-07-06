@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".Add_Event">
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorPrimaryDark"
+
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/EventName"
+            android:hint="Event Name"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="22sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorPrimaryDark"
+
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/attendance"
+            android:hint="Estimated Attendance"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="22sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorPrimaryDark"
+
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LocationOfEvent"
+            android:hint="Location of event"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="22sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Spinner
+        android:id="@+id/category"
+        android:layout_width="349dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/txtVw"
+        android:layout_toRightOf="@+id/txtVw" />
+    <Spinner
+        android:id="@+id/audience"
+        android:layout_width="349dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/txtVw"
+        android:layout_toRightOf="@+id/txtVw" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/AddEventBtn"
+        android:hint="Add Event"
+        android:textSize="22sp"
+        android:textColorHint="#ffffff"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_rounded"
+        />
+
+</LinearLayout>

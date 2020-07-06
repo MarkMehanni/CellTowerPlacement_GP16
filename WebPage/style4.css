@@ -9,8 +9,6 @@ body {
   width: 25%;
   margin-top: 100px
 }
-
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
@@ -51,7 +49,6 @@ ul {
   height: 600px;
 }
 
-/* Split the screen in half */
 .split {
   height: 100%;
   width: 50%;
@@ -63,17 +60,12 @@ ul {
   margin-top: 40px;
 }
 
-/* Control the left side */
 .left {
   left: 0;
 }
-
-/* Control the right side */
 .right {
   right: 0;
 }
-
-/* If you want the content centered horizontally and vertically */
 .centered {
   position: absolute;
   top: 50%;
@@ -81,8 +73,6 @@ ul {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
-/* Style the image inside the centered container, if needed */
 .centered img {
   width: 150px;
   border-radius: 50%;

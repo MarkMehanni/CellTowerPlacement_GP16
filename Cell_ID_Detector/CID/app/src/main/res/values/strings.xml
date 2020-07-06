@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CID</string>
+    <string name="title_activity_user__location">Map</string>
+    <string name="title_activity_loc">Map</string>
+</resources>

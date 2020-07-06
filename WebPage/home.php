@@ -13,7 +13,6 @@
 			<li><a href="signUpIndex.php" class="signup">Sign up</a></li>
 		</ul>
 	</div>
-	
 	<div class="wrapper1">
 		<h1 class="welcomeText">
 			Cell Tower <br/>
@@ -24,9 +23,7 @@
 			CTP is an applicaton that <br>monitors and suggests the finest <br>place to deploy a cell tower
 		</h1>
 		<img class="illustration" src="celltower2.svg">
-		
 	</div>
-	
-	
+
 </body>
 </html>

@@ -6,9 +6,7 @@ include 'locations_model.php';
        $Latitude = $points->Magnitude[0]->lat ; 
        $Longitude =  $points->Magnitude[0]->lng;      
 
-       echo $Latitude . " previous was latitude , KHARRRRAAAAA Bel Kousbarraaaaa " . $Longitude  ." Space fasddsyyyyy  ";      
+       echo $Latitude . "  latitude  " . $Longitude  ." Longitude  ";      
        $Nearest = getsClosest($Latitude ,  $Longitude);
-
-
    }
     ?> 

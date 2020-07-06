@@ -13,11 +13,11 @@ if(isset($_POST['login'])){
   print_r($res);
   if(DB::query('SELECT username FROM users WHERE username=:username',array(':username'=>$username))){
 	  echo 'here';
-  // $userId = DB::query('SELECT id FROM users WHERE username=:username',array(':username'=>$username))[0]["id"];
+
 	print_r(DB::query('SELECT password FROM users WHERE username=:username',array(':username'=>$username))[0]['password']);
     if($password == DB::query('SELECT password FROM users WHERE username=:username',array(':username'=>$username))[0]["password"]){
 		$type=DB::query('SELECT usertype FROM users  WHERE username=:username',array(':username'=>$username))[0]["usertype"];
-        //Fun::addLoginToken($userId,$remember);
+       
         $msg = "Login";
 		echo $type;
         if($type=='admin'){
@@ -28,13 +28,10 @@ if(isset($_POST['login'])){
           header("Location: sidebarengineer.php");
           exit;
         }
-        //header("Location: ./");
-        //exit;
     }else{
       $msg = "Username or Password are incorrect";
     }
   }else{
-    // Password Verify for someRandomText to ensure that the process take the Same Time if the username is correct for security reasons...
     password_verify($password, 'someRandomText');
     $msg = "Username or Password are incorrect";
   }

@@ -39,8 +39,8 @@
 				<input type="date"  id="dateofbirth" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"
 					 class="inputBox" name="dateofbirth" placeholder="Date Of Birth: YYYY-MM-DD" required >
 				
-				<input type="radio" id="female" name="gender" value="female"> Female<br>
-				<input type="radio" id="male"  name="gender" value="male"> Male<br>
+				<input type="radio" id="female" name="gender" value="female" required> Female<br>
+				<input type="radio" id="male"  name="gender" value="male" > Male<br>
 
 				<p><span><input type="checkbox"required></span> I agree to the terms of service </P>
 				
@@ -54,15 +54,10 @@
 	</div>
 
 	<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
 	<script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
 	<script src="./vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
 	<script src="./vendor/bootstrap/js/popper.js"></script>
 	<script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
 	<script src="./vendor/select2/select2.min.js"></script>
 	<script>
 
@@ -99,14 +94,10 @@ confirm_password.onkeyup = validatePassword;
 			dropdownParent: $('#dropDownSelect1')
 		});
 	</script>
-<!--===============================================================================================-->
 	<script src="./vendor/daterangepicker/moment.min.js"></script>
 	<script src="./vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
 	<script src="./vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
 	<script src="./js/main.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];

@@ -33,7 +33,6 @@ if ($errorMessage != "" )
 }
 else
 {
- // $sql="INSERT INTO users(username,password,usertype ) VALUES ('$username','$password' ,'engineer' )";
   $sql = "INSERT INTO `users`( `password`, `username`, `lastname`,`phone`, `email`,`dateofbirth`,`gender`,`usertype`) 
   VALUES ('$password','$username','$lastname','$phoneNumber','$email','$db','$gender','engineer')";
 
